@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Invoice - Voyagr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d3436;
+            --accent: #74b9ff;
+            --secondary: #ff7675;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            padding: 2rem;
+        }
+
+        .invoice-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            position: relative;
+            background-image: url('https://www.heropatterns.com/patterns/denim.png');
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 3rem;
+        }
+
+        .company-info img {
+            width: 180px;
+            margin-bottom: 1rem;
+        }
+
+        .invoice-meta {
+            text-align: right;
+        }
+
+        .invoice-title {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .charges-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .charges-table th {
+            background: var(--accent);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .charges-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .total-section {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .payment-icon {
+            width: 50px;
+            height: 50px;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .thank-you {
+            text-align: center;
+            margin-top: 3rem;
+            color: #636e72;
+        }
+
+        .watermark {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 15rem;
+            transform: rotate(-30deg);
+            pointer-events: none;
+            z-index: 0;
+            top: 30%;
+            left: 20%;
+            color: var(--secondary);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .client-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="watermark">PAID</div>
+        
+        <div class="header">
+            <div class="company-info">
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd" alt="Voyagr Logo">
+                <p>Travel & Adventure Experts<br>contact@voyagr.com<br>+1 (555) 123-4567</p>
+            </div>
+            <div class="invoice-meta">
+                <h1 class="invoice-title">Invoice</h1>
+                <p>Invoice #: VOY2345INV<br>
+                Date: 2024-02-15<br>
+                Due Date: 2024-03-01</p>
+            </div>
+        </div>
+
+        <div class="client-info">
+            <div>
+                <h3>Billed To:</h3>
+                <p>John Doe<br>
+                johndoe@email.com<br>
+                123 Traveler's Street<br>
+                Wanderlust City, WC 12345</p>
+            </div>
+            <div>
+                <h3>Trip Details:</h3>
+                <p>Italian Adventure Package<br>
+                Dates: 2024-05-15 to 2024-05-22<br>
+                Travelers: 2 Adults</p>
+            </div>
+        </div>
+
+        <table class="charges-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Deluxe Accommodation (7 nights)</td>
+                    <td>2</td>
+                    <td>$350.00</td>
+                    <td>$2,450.00</td>
+                </tr>
+                <tr>
+                    <td>Guided City Tours</td>
+                    <td>2</td>
+                    <td>$150.00</td>
+                    <td>$300.00</td>
+                </tr>
+                <tr>
+                    <td>Airport Transfers</td>
+                    <td>4</td>
+                    <td>$50.00</td>
+                    <td>$200.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-section">
+            <div>
+                <h3>Payment Method:</h3>
+                <p>Credit Card ending in 4242</p>
+            </div>
+            <div>
+                <p>Subtotal: $2,950.00</p>
+                <p>Tax (10%): $295.00</p>
+                <h2>Total: $3,245.00</h2>
+            </div>
+        </div>
+
+        <div class="payment-method">
+            <img src="https://www.svgrepo.com/show/303457/visa-logo.svg" class="payment-icon" alt="Visa">
+            <img src="https://www.svgrepo.com/show/303470/mastercard-logo.svg" class="payment-icon" alt="Mastercard">
+            <img src="https://www.svgrepo.com/show/303482/paypal-logo.svg" class="payment-icon" alt="PayPal">
+        </div>
+
+        <div class="thank-you">
+            <p>Thank you for choosing Voyagr!<br>
+            Questions? Contact us at support@voyagr.com</p>
+            <button class="download-btn">Download PDF Invoice</button>
+        </div>
+    </div>
+</body>
+</html>

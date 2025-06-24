@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f0f4f8;
+    overflow-y: scroll; /* Add scrollbar */
+  }
+  
+  /* Month Selector */
+  .month-selector {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  #monthSlider {
+    width: 80%;
+    margin: 10px 0;
+  }
+  
+  #monthName {
+    font-size: 1.5rem;
+    color: #2d4059;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Expense Filter */
+  .expense-filter {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .filter-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #2d4059;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .filter-btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Countries Grid */
+  .countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-height: 70vh; /* Limit height for scroll */
+    overflow-y: auto; /* Add scrollbar */
+  }
+  
+  .country-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .country-card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .expense-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 10px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  /* Dot Colors */
+  .expense-dot.cheap { background: #4CAF50; }
+  .expense-dot.moderate { background: #FFC107; }
+  .expense-dot.expensive { background: #F44336; }

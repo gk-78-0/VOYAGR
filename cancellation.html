@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Booking - Voyagr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .cancel-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 600px;
+            backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+        }
+
+        .booking-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.5rem;
+        }
+
+        .booking-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .booking-details h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .detail-item {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .warning-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .confirmation-check {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #e74c3c;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-cancel {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .booking-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cancel-container">
+        <h1>Cancel Booking</h1>
+        
+        <div class="booking-card">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4" 
+                 alt="Hotel Booking" 
+                 class="booking-image">
+            <div class="booking-details">
+                <h3>Paradise Beach Resort</h3>
+                <p class="detail-item"><strong>Dates:</strong> Nov 15 - Nov 22, 2024</p>
+                <p class="detail-item"><strong>Booking ID:</strong> VOY234567</p>
+                <p class="detail-item"><strong>Guests:</strong> 2 Adults</p>
+                <p class="detail-item"><strong>Total:</strong> $1,450.00</p>
+            </div>
+        </div>
+
+        <div class="warning-message">
+            ⚠️ Cancellations within 7 days of check-in may incur a fee
+        </div>
+
+        <div class="confirmation-check">
+            <input type="checkbox" id="confirmCancel" required>
+            <label for="confirmCancel">I understand this action cannot be undone</label>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="btn btn-back">Back to Booking</button>
+            <button type="submit" class="btn btn-cancel">Confirm Cancellation</button>
+        </div>
+    </div>
+</body>
+</html>

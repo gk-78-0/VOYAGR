@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager - Travel Expense Filter</title>
+  <link rel="stylesheet" href="price.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Month Selector -->
+  <div class="month-selector">
+    <input type="range" min="1" max="12" value="1" id="monthSlider">
+    <div id="monthName">January</div>
+  </div>
+
+  <!-- Expense Filter -->
+  <div class="expense-filter">
+    <button class="filter-btn" data-filter="cheap">Cheap</button>
+    <button class="filter-btn" data-filter="moderate">Moderate</button>
+    <button class="filter-btn" data-filter="expensive">Expensive</button>
+  </div>
+
+  <!-- Countries Grid -->
+  <div class="countries-grid">
+    <!-- France -->
+    <div class="country-card" data-jan="moderate" data-feb="moderate" data-mar="cheap" data-apr="cheap" data-may="moderate" data-jun="expensive" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="France">
+      <h3>France</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Japan -->
+    <div class="country-card" data-jan="expensive" data-feb="expensive" data-mar="moderate" data-apr="cheap" data-may="cheap" data-jun="moderate" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="expensive">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Japan">
+      <h3>Japan</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Italy -->
+    <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="moderate" data-apr="moderate" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+      <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Italy">
+      <h3>Italy</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- USA -->
+    <div class="country-card" data-jan="moderate" data-feb="moderate" data-mar="cheap" data-apr="cheap" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="moderate" data-dec="expensive">
+      <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="USA">
+      <h3>USA</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Spain -->
+    <div class="country-card" data-jan="moderate" data-feb="moderate" data-mar="cheap" data-apr="cheap" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="moderate" data-dec="moderate">
+      <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Spain">
+      <h3>Spain</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Australia -->
+    <div class="country-card" data-jan="expensive" data-feb="expensive" data-mar="moderate" data-apr="cheap" data-may="cheap" data-jun="moderate" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="expensive">
+      <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Australia">
+      <h3>Australia</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Greece -->
+    <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="moderate" data-apr="moderate" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Greece">
+      <h3>Greece</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Canada -->
+    <div class="country-card" data-jan="expensive" data-feb="expensive" data-mar="moderate" data-apr="cheap" data-may="cheap" data-jun="moderate" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="expensive">
+      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Canada">
+      <h3>Canada</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- Add 11 more countries (example structure below) -->
+    <!-- Brazil -->
+    <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="moderate" data-apr="moderate" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+      <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Brazil">
+      <h3>Brazil</h3>
+      <div class="expense-dot"></div>
+    </div>
+
+    <!-- India -->
+    <div class="country-card" data-jan="cheap" data-feb="expensive" data-mar="expensive" data-apr="expensive" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+        <img src="https://i.ibb.co/gMjrXFzw/fashion-5255195-1280.jpg" alt="fashion-5255195-1280" border="0"></a>
+        <h3>India</h3>
+        <div class="expense-dot"></div>
+      </div>
+
+      
+      <!-- Vietnam -->
+    <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="moderate" data-apr="moderate" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+        <img src="https://i.ibb.co/9HQSNvzP/woman-5948133-1280.jpg" alt="woman-5948133-1280" border="0"></a>
+        <h3>Vietnam</h3>
+        <div class="expense-dot"></div>
+      </div>
+
+      
+
+
+      <!-- Thailand -->
+    <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="cheap" data-apr="moderate" data-may="cheap" data-jun="cheap" data-jul="cheap" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+        <img src="https://i.ibb.co/TDV6zBbK/thailand-7286466-1280.jpg" alt="thailand-7286466-1280" border="0"></a>
+        <h3>Thailand</h3>
+        <div class="expense-dot"></div>
+      </div>
+
+      
+
+
+      <!-- Peru -->
+    <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="moderate" data-apr="moderate" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+        <img src="https://i.ibb.co/0RMXcL7P/carnival-476816-1280.jpg" alt="carnival-476816-1280" border="0"></a>
+        <h3>Peru</h3>
+        <div class="expense-dot"></div>
+      </div>
+
+      
+
+
+      
+  
+
+
+
+    <!-- Continue adding more countries... -->
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const monthSlider = document.getElementById('monthSlider');
+    const monthName = document.getElementById('monthName');
+    const countries = document.querySelectorAll('.country-card');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    // Update month name and expense dots
+    monthSlider.addEventListener('input', (e) => {
+      const monthIndex = e.target.value - 1;
+      monthName.textContent = months[monthIndex];
+      updateDots(monthIndex);
+    });
+
+    // Filter countries by expense level
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        applyFilter(filter);
+      });
+    });
+
+    // Update dots based on selected month
+    function updateDots(monthIndex) {
+      countries.forEach(country => {
+        const monthKey = Object.keys(country.dataset)[monthIndex];
+        const expenseLevel = country.dataset[monthKey];
+        const dot = country.querySelector('.expense-dot');
+        dot.className = `expense-dot ${expenseLevel}`;
+      });
+    }
+
+    // Apply expense filter
+    function applyFilter(filter) {
+      countries.forEach(country => {
+        const monthKey = Object.keys(country.dataset)[monthSlider.value - 1];
+        const expenseLevel = country.dataset[monthKey];
+        country.style.display = (expenseLevel === filter) ? 'block' : 'none';
+      });
+    }
+
+    // Initialize
+    updateDots(0);
+  </script>
+</body>
+</html>

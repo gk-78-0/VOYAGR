@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Invoice - Voyagr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d3436;
+            --accent: #74b9ff;
+            --secondary: #ff7675;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .download-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .download-header img {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .invoice-preview {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .download-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(116, 185, 255, 0.4);
+        }
+
+        .download-instructions {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .watermark {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 10rem;
+            transform: rotate(-30deg);
+            pointer-events: none;
+            z-index: 0;
+            top: 30%;
+            left: 20%;
+            color: var(--secondary);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .download-options,
+            .download-header,
+            .download-instructions {
+                display: none;
+            }
+            .invoice-preview {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-header">
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd" alt="Voyagr Logo">
+        <h1>Your Invoice is Ready</h1>
+        <p>Download or print your travel invoice</p>
+    </div>
+
+    <!-- Include the actual invoice content from previous example -->
+    <div class="invoice-preview">
+        <div class="watermark">VOYAGR</div>
+        
+        <!-- Invoice Content (Same as previous invoice example) -->
+        <div class="header">
+            <div class="company-info">
+                <p>Voyagr Travel<br>contact@voyagr.com<br>+1 (555) 123-4567</p>
+            </div>
+            <div class="invoice-meta">
+                <h1 class="invoice-title">Invoice</h1>
+                <p>Invoice #: VOY2345INV<br>
+                Date: 2024-02-15<br>
+                Due Date: 2024-03-01</p>
+            </div>
+        </div>
+
+        <!-- Rest of the invoice content goes here -->
+        
+    </div>
+
+    <div class="download-options">
+        <button class="download-btn" onclick="window.print()">
+            📄 Download PDF
+        </button>
+        <button class="download-btn">
+            📧 Email Copy
+        </button>
+        <button class="download-btn">
+            🖨️ Print Directly
+        </button>
+    </div>
+
+    <div class="download-instructions">
+        <h3>How to Save as PDF:</h3>
+        <p>1. Click "Download PDF"<br>
+        2. In print dialog, select "Save as PDF"<br>
+        3. Choose destination and save</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Feedback - Voyagr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d3436;
+            --accent: #74b9ff;
+            --secondary: #ff7675;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            padding: 2rem;
+        }
+
+        .feedback-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .average-rating {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .rating-stars {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feedback-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feedback-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .feedback-date {
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        .feedback-text {
+            color: #2d3436;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        .trip-details {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .trip-image {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .sentiment-positive {
+            color: #2ecc71;
+        }
+
+        .sentiment-negative {
+            color: #e74c3c;
+        }
+
+        .rating-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .rating-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .leave-feedback-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(116, 185, 255, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .leave-feedback-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .feedback-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <div class="header">
+            <h1>Traveler Experiences</h1>
+            <div class="average-rating">4.8</div>
+            <div class="rating-stars">
+                ★★★★★
+                <span style="color: #636e72">(128 reviews)</span>
+            </div>
+        </div>
+
+        <div class="feedback-grid">
+            <div class="feedback-card">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" 
+                         alt="User Avatar" 
+                         class="user-avatar">
+                    <div>
+                        <div class="user-name">Jasis B</div>
+                        <div class="feedback-date">15 February 2024</div>
+                    </div>
+                </div>
+                <div class="rating-stars">★★★★★</div>
+                <p class="feedback-text">
+                    The Italian Adventure package was absolutely incredible! From the 
+                    Colosseum tour to the Venice gondola ride, every moment was magical.
+                </p>
+                <div class="trip-details">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5" 
+                         alt="Trip Image" 
+                         class="trip-image">
+                    <span class="sentiment-positive">Positive Experience</span>
+                </div>
+            </div>
+
+            <div class="feedback-card">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" 
+                         alt="User Avatar" 
+                         class="user-avatar">
+                    <div>
+                        <div class="user-name">Gokul Krishna</div>
+                        <div class="feedback-date">12 February 2024</div>
+                    </div>
+                </div>
+                <div class="rating-stars">★★★★☆</div>
+                <p class="feedback-text">
+                    Great overall experience, though the hotel in Rome could have been 
+                    better located. The guided tours were exceptionally informative.
+                </p>
+                <div class="trip-details">
+                    <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140" 
+                         alt="Trip Image" 
+                         class="trip-image">
+                    <span class="sentiment-positive">Recommended</span>
+                </div>
+            </div>
+
+            <!-- Add more feedback cards as needed -->
+        </div>
+
+        <button class="leave-feedback-btn">Share Your Experience</button>
+    </div>
+</body>
+</html>

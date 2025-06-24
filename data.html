@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voyager - Explore and Plan Your Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #34495e;
+    }
+    nav a {
+      color: #fff;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    nav a:hover, nav a.active {
+      background: #2c3e50;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+    }
+    /* Section styling */
+    section {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Travel Options Styling */
+    #travel-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .travel-option {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+    .travel-option:hover {
+      transform: translateY(-5px);
+    }
+    .travel-option h2 {
+      color: #e67e22;
+      margin-bottom: 10px;
+    }
+    .travel-option p {
+      margin-bottom: 8px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin-top: 10px;
+    }
+    /* Expense Filter Styling */
+    .month-selector {
+      text-align: center;
+      margin: 30px 0;
+    }
+    #monthSlider {
+      width: 80%;
+      margin: 10px 0;
+    }
+    #monthName {
+      font-size: 1.5rem;
+      color: #2d4059;
+      font-family: 'Playfair Display', serif;
+    }
+    .expense-filter {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .filter-btn {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background: #2d4059;
+      color: white;
+      transition: 0.3s;
+    }
+    .filter-btn:hover {
+      opacity: 0.8;
+    }
+    .countries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .country-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .country-card:hover {
+      transform: translateY(-5px);
+    }
+    .country-card img {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .country-card h3 {
+      margin-top: 10px;
+      color: #e67e22;
+    }
+    .expense-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin: 10px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .expense-dot.cheap { background: #4CAF50; }
+    .expense-dot.moderate { background: #FFC107; }
+    .expense-dot.expensive { background: #F44336; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Voyager</h1>
+    <p>Explore your travel options and manage your travel expenses in one vibrant platform</p>
+  </header>
+  <nav>
+    <a href="#" data-target="travel-section" class="nav-link active">Travel Options</a>
+    <a href="#" data-target="expense-section" class="nav-link">Expense Filter</a>
+  </nav>
+  <div class="container">
+    <!-- Travel Options Section -->
+    <section id="travel-section" class="active">
+      <h2 style="text-align:center; color: #2c3e50;">Travel Options</h2>
+      <div id="travel-options">
+        <!-- Travel options will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <!-- Expense Filter Section -->
+    <section id="expense-section">
+      <h2 style="text-align:center; color: #2c3e50;">Travel Expense Filter</h2>
+      <div class="month-selector">
+        <input type="range" min="1" max="12" value="1" id="monthSlider">
+        <div id="monthName">January</div>
+      </div>
+      <div class="expense-filter">
+        <button class="filter-btn" data-filter="cheap">Cheap</button>
+        <button class="filter-btn" data-filter="moderate">Moderate</button>
+        <button class="filter-btn" data-filter="expensive">Expensive</button>
+        <button class="filter-btn" id="resetFilter">Reset</button>
+      </div>
+      <div class="countries-grid">
+        <!-- Example Country Cards -->
+        <!-- France -->
+        <div class="country-card" data-jan="moderate" data-feb="moderate" data-mar="cheap" data-apr="cheap" data-may="moderate" data-jun="expensive" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="France">
+          <h3>France</h3>
+          <div class="expense-dot"></div>
+        </div>
+        <!-- Japan -->
+        <div class="country-card" data-jan="expensive" data-feb="expensive" data-mar="moderate" data-apr="cheap" data-may="cheap" data-jun="moderate" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="expensive">
+          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Japan">
+          <h3>Japan</h3>
+          <div class="expense-dot"></div>
+        </div>
+        <!-- Italy -->
+        <div class="country-card" data-jan="cheap" data-feb="cheap" data-mar="moderate" data-apr="moderate" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="moderate" data-sep="moderate" data-oct="cheap" data-nov="cheap" data-dec="moderate">
+          <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Italy">
+          <h3>Italy</h3>
+          <div class="expense-dot"></div>
+        </div>
+        <!-- USA -->
+        <div class="country-card" data-jan="moderate" data-feb="moderate" data-mar="cheap" data-apr="cheap" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="moderate" data-dec="expensive">
+          <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="USA">
+          <h3>USA</h3>
+          <div class="expense-dot"></div>
+        </div>
+        <!-- Spain -->
+        <div class="country-card" data-jan="moderate" data-feb="moderate" data-mar="cheap" data-apr="cheap" data-may="expensive" data-jun="expensive" data-jul="expensive" data-aug="expensive" data-sep="moderate" data-oct="cheap" data-nov="moderate" data-dec="moderate">
+          <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Spain">
+          <h3>Spain</h3>
+          <div class="expense-dot"></div>
+        </div>
+        <!-- Additional country cards can be added here following the same structure -->
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Navigation functionality: Toggle between sections
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        navLinks.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');
+        sections.forEach(section => section.classList.remove('active'));
+        const target = document.getElementById(link.getAttribute('data-target'));
+        target.classList.add('active');
+      });
+    });
+
+    // Travel Options: Fetch and display JSON data
+    async function fetchTravelOptions() {
+      try {
+        // Update the URL to point to your actual JSON data
+        const response = await fetch('https://yourusername.github.io/your-repo/data.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        displayTravelOptions(data.travelOptions);
+      } catch (error) {
+        console.error('Error fetching travel options:', error);
+      }
+    }
+
+    function displayTravelOptions(options) {
+      const container = document.getElementById('travel-options');
+      options.forEach(option => {
+        const optionDiv = document.createElement('div');
+        optionDiv.classList.add('travel-option');
+        optionDiv.innerHTML = `
+          <h2>${option.name}</h2>
+          <p><strong>Price:</strong> ${option.price} ${option.currency}</p>
+          <p><strong>Departure:</strong> ${new Date(option.departure_date).toLocaleString()}</p>
+          <p><strong>Arrival:</strong> ${new Date(option.arrival_date).toLocaleString()}</p>
+          <hr>
+        `;
+        container.appendChild(optionDiv);
+      });
+    }
+    fetchTravelOptions();
+
+    // Expense Filter functionality
+    const monthSlider = document.getElementById('monthSlider');
+    const monthName = document.getElementById('monthName');
+    const countries = document.querySelectorAll('.country-card');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    monthSlider.addEventListener('input', (e) => {
+      const monthIndex = e.target.value - 1;
+      monthName.textContent = months[monthIndex];
+      updateDots(monthIndex);
+      resetFilter();
+    });
+
+    function updateDots(monthIndex) {
+      countries.forEach(country => {
+        const monthKey = Object.keys(country.dataset)[monthSlider.value - 1];
+        const expenseLevel = country.dataset[monthKey];
+        const dot = country.querySelector('.expense-dot');
+        dot.className = `expense-dot ${expenseLevel}`;
+      });
+    }
+
+    function applyFilter(filter) {
+      countries.forEach(country => {
+        const monthKey = Object.keys(country.dataset)[monthSlider.value - 1];
+        const expenseLevel = country.dataset[monthKey];
+        country.style.display = (expenseLevel === filter) ? 'block' : 'none';
+      });
+    }
+
+    function resetFilter() {
+      countries.forEach(country => {
+        country.style.display = 'block';
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        if (filter) {
+          applyFilter(filter);
+        } else {
+          resetFilter();
+        }
+      });
+    });
+
+    // Initialize expense dots for January (first month)
+    updateDots(0);
+  </script>
+</body>
+</html>
